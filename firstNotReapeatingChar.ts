@@ -24,7 +24,8 @@ const firstNotRepeatingChar = (term: string): string => {
     obj[key] == 1 ? arrSingleShow.push(key) : "";
   });
 
-  return arrSingleShow[0];
+  return arrSingleShow[0] ? arrSingleShow[0] : "";
 };
 
 console.log(firstNotRepeatingChar("aaabccddddeffg"));
+console.log(firstNotRepeatingChar("aaabbccddddeeffgg"));
