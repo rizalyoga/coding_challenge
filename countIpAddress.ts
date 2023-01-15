@@ -8,11 +8,11 @@ ipsBetween("10.0.0.0", "10.0.1.0") => returns 256
 ipsBetween("20.0.0.10", "20.0.1.0") => returns 246
 */
 
-const ipToInt32 = (ip) => {
+const ipToInt32 = (ip: string): number => {
   return parseInt(
     ip
       .split(".")
-      .map(function (v) {
+      .map(function (v: string) {
         const bin = parseInt(v).toString(2);
         return new Array(9 - bin.length).join("0") + bin;
       })
@@ -21,7 +21,7 @@ const ipToInt32 = (ip) => {
   );
 };
 
-const ipsBetween = (start, end) => {
+const ipsBetween = (start: string, end: string): number => {
   return ipToInt32(end) - ipToInt32(start);
 };
 

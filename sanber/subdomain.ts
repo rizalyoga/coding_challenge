@@ -1,14 +1,14 @@
-const domains = [
+const domains: string[] = [
   "https://id.bitdegree.org",
   "https://finance.detik.com",
   "https://telkom.co.id",
   "https://corona.jakarta.go.id",
 ];
 
-const filterSubDomain = (domain) => {
-  const subDomainArray = [];
+const filterSubDomain = (domain: string[]): string[] | undefined => {
+  const subDomainArray: string[] = [];
 
-  domain.forEach((url) => {
+  domain.forEach((url: string) => {
     if (url.includes("https://")) {
       const domainWithoutSSL = url.slice(8);
       subDomainArray.push(domainWithoutSSL);

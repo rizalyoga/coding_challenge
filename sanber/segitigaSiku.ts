@@ -1,7 +1,7 @@
 // Soal nomor 1 ; Segi tiga siku siku
-const segiTigaSiku = (tinggi) => {
+const segiTigaSiku = (tinggi: number): void => {
   for (let i = 0; i < tinggi; i++) {
-    let baris = "";
+    let baris: string = "";
     for (let j = 0; j < i; j++) {
       if (baris.length === 0) {
         baris += "*";
