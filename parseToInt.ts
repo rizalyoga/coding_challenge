@@ -1,4 +1,4 @@
-const numbersMap = {
+const numbersMap: { [key: string]: number } = {
   zero: 0,
   one: 1,
   two: 2,
@@ -32,16 +32,16 @@ const numbersMap = {
   million: 1000000,
 };
 
-function getSimpleNumber(number) {
+const getSimpleNumber = (number: string): number => {
   return numbersMap[number]
     ? numbersMap[number]
     : number
         .split("-")
         .map((v) => numbersMap[v])
         .reduce((prev, next) => prev + next, 0);
-}
+};
 
-function getComplexNumber(numbers) {
+const getComplexNumber = (numbers: string[]): number => {
   let res = 0;
   numbers = numbers.filter((v) => v !== "and");
 
@@ -68,11 +68,19 @@ function getComplexNumber(numbers) {
   }
 
   return res;
-}
+};
 
-const parseInt = (string) => {
+const parseToInt = (string: string): number => {
   const numbers = string.split(" ");
   return numbers.length === 1
     ? getSimpleNumber(numbers[0])
     : getComplexNumber(numbers);
 };
+
+console.log(parseToInt("one"));
+console.log(parseToInt("twenty"));
+console.log(parseToInt("two hundred forty-six"));
+console.log(parseToInt("two hundred forty-six"));
+console.log(
+  parseToInt("seven hundred eighty-three thousand nine hundred and nineteen")
+);
